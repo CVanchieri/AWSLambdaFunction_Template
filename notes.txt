@@ -1,0 +1,43 @@
+### Notes to create an AWS lambda function ###
+
+### building necessary files for AWS lambda fuction ### 
+# add the code to lambdafunction.py in src folder 
+will be used in lambda_function.zip file
+
+# add any libraries used to pipfile 
+necessary to create requirements.txt
+
+# create requirements.txt with pip freeze > requirements.txt 
+necessary to create the layer.zip file
+
+# run sh createlambdalayer.sh 3.8  from root folder 
+creates a layer.zip file for AWS upload 
+
+# run sh buildpackage.sh from root folder 
+creates a lambda_function.zip file for AWS upload 
+
+### setting up a new AWS lambda function ###
+# AWS lambda section, click on layers section
+add a new layer, name the layer, add layer.zip file created, select Python 3.8 runtime
+
+# AWS functions section, create a new function 
+select from scratch, name the function, select the runtime Python 3.8
+
+# click actions tab 
+upload the lambda_function.zip file
+
+# AWS environmental variables section 
+add in any environmental variables necessary 
+
+# select layers tab in your lambda function
+click add layer, choose custom layers, select the correct layer created
+
+# select configuration tab, click add trigger 
+select EventBridge, create new rule, name the rule, add in chron expression for trigger time
+
+# select test button 
+configure a test event, leave defaults, if test completes, all done.
+
+
+
+
